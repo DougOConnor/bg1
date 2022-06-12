@@ -1,12 +1,11 @@
-import { h, Fragment } from 'preact';
-import { useCallback, useEffect, useState } from 'preact/hooks';
+import { useCallback, useEffect, useState } from 'react';
 
-import { Booking, Guest, Offer, Park, PlusExperience } from '@/api/genie';
-import { useGenieClient } from '@/contexts/GenieClient';
-import { Party, PartyProvider } from '@/contexts/Party';
-import { useRebooking } from '@/contexts/Rebooking';
-import useDataLoader from '@/hooks/useDataLoader';
-import RefreshIcon from '@/icons/RefreshIcon';
+import { Booking, Guest, Offer, Park, PlusExperience } from '/api/genie';
+import { useGenieClient } from '/contexts/GenieClient';
+import { Party, PartyProvider } from '/contexts/Party';
+import { useRebooking } from '/contexts/Rebooking';
+import useDataLoader from '/hooks/useDataLoader';
+import RefreshIcon from '/icons/RefreshIcon';
 import Button from '../Button';
 import Page from '../Page';
 import BookingDetails from './BookingDetails';
@@ -25,7 +24,7 @@ export default function BookExperience({
   experience: PlusExperience;
   park: Park;
   onClose: () => void;
-}): h.JSX.Element | null {
+}) {
   const client = useGenieClient();
   const rebooking = useRebooking();
   const [party, setParty] = useState<Party>();

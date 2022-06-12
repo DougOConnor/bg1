@@ -1,13 +1,11 @@
-import { h, Fragment } from 'preact';
-
-import { Experience } from '@/api/genie';
+import { Experience } from '/api/genie';
 import LabelledItem from './LabelledItem';
 
 export default function StandbyTime({
   experience: { type, standby },
 }: {
   experience: Pick<Experience, 'type' | 'standby'>;
-}): h.JSX.Element {
+}) {
   return standby.displayNextShowTime ||
     (type === 'ENTERTAINMENT' && !standby.waitTime) ? (
     <NextShowTime standby={standby} />

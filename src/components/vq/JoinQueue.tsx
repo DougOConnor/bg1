@@ -1,9 +1,8 @@
-import { h, Fragment } from 'preact';
-import { useState } from 'preact/hooks';
+import { useState } from 'react';
 
-import { Guest, RequestError } from '@/api/vq';
-import useFlash from '@/hooks/useFlash';
-import { sleep } from '@/sleep';
+import { Guest, RequestError } from '/api/vq';
+import useFlash from '/hooks/useFlash';
+import { sleep } from '/sleep';
 import FloatingButton from '../FloatingButton';
 import GuestList from '../GuestList';
 import Button from '../Button';
@@ -18,7 +17,7 @@ export default function JoinQueue({
   guests: Guest[];
   joinQueue: () => Promise<boolean>;
   onEdit: () => void;
-}): h.JSX.Element {
+}) {
   const [joinDisabled, setJoinDisabled] = useState<boolean>(false);
   const [flashElem, flash] = useFlash();
 

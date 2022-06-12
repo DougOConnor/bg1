@@ -1,9 +1,8 @@
-import { h } from 'preact';
-import { useCallback, useEffect, useRef, useState } from 'preact/hooks';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
-import { Guest, Queue, JoinQueueResult } from '@/api/vq';
-import { useVQClient } from '@/contexts/VQClient';
-import useFlash from '@/hooks/useFlash';
+import { Guest, Queue, JoinQueueResult } from '/api/vq';
+import { useVQClient } from '/contexts/VQClient';
+import useFlash from '/hooks/useFlash';
 import Page from '../Page';
 import TimeBoard from '../TimeBoard';
 import BGResult from './BGResult';
@@ -15,7 +14,7 @@ import FloatingButton from '../FloatingButton';
 
 const isAttraction = (queue: Queue) => queue.categoryContentId === 'attraction';
 
-export default function BGClient(): h.JSX.Element {
+export default function BGClient() {
   const client = useVQClient();
   const [queues, setQueues] = useState<Queue[]>();
   const [queue, setQueue] = useState<Queue | null>(null);
@@ -119,10 +118,10 @@ export default function BGClient(): h.JSX.Element {
 
   if (queues?.length === 0) {
     return (
-      <Page heading="No Virtual Queues">
+      <Page heading="No Active Queues">
         <p>
-          No virtual queues are currently available. Tap the Refresh button to
-          check again.
+          You can't join any virtual queues just yet. Check back within an hour
+          of the queue opening time, or tap the Refresh button to check again.
         </p>
         <FloatingButton disabled={refreshing} onClick={refreshQueues}>
           Refresh

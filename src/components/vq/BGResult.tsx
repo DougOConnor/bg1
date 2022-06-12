@@ -1,7 +1,6 @@
-import { h, Fragment } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useState } from 'react';
 
-import { Guest, JoinQueueResult } from '@/api/vq';
+import { Guest, JoinQueueResult } from '/api/vq';
 import FloatingButton from '../FloatingButton';
 import GuestList from '../GuestList';
 
@@ -18,7 +17,7 @@ export default function BGResult({
   guests: Guest[];
   result: JoinQueueResult;
   onDone: () => void;
-}): h.JSX.Element {
+}) {
   const { boardingGroup, conflicts } = result;
   const joinedGuests = guests.filter(g => !(g.id in conflicts));
   const failedGuests = guests.filter(g => g.id in conflicts);

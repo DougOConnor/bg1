@@ -1,14 +1,13 @@
-import { h, Fragment } from 'preact';
-import { useState } from 'preact/hooks';
+import { useState } from 'react';
 
-import { Booking, BookingGuest } from '@/api/genie';
+import { Booking, BookingGuest } from '/api/genie';
+import { useRebooking } from '/contexts/Rebooking';
 import Button from '../Button';
 import FloatingButton from '../FloatingButton';
 import GuestList from '../GuestList';
 import Page from '../Page';
 import ArrivalTimes from './ArrivalTimes';
 import CancelGuests from './CancelGuests';
-import { useRebooking } from '@/contexts/Rebooking';
 
 export default function BookingDetails({
   booking,
@@ -20,7 +19,7 @@ export default function BookingDetails({
   onClose: (newGuests: BookingGuest[]) => void;
   isRebookable?: boolean;
   isNew?: boolean;
-}): h.JSX.Element {
+}) {
   const rebooking = useRebooking();
   const [guests, setGuests] = useState(booking.guests);
   const [canceling, setCanceling] = useState(false);

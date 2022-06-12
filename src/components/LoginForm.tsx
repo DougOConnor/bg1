@@ -1,7 +1,6 @@
-import { h } from 'preact';
-import { useEffect, useRef } from 'preact/hooks';
+import { useEffect, useRef } from 'react';
 
-import { AuthClient, AuthData } from '@/api/auth/client';
+import { AuthClient, AuthData } from '/api/auth/client';
 
 export default function LoginForm({
   resort,
@@ -9,7 +8,7 @@ export default function LoginForm({
 }: {
   resort: 'WDW' | 'DLR';
   onLogin: (data: AuthData) => void;
-}): h.JSX.Element {
+}) {
   const iframe = useRef<HTMLIFrameElement>(null);
 
   useEffect(() => {

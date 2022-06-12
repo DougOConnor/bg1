@@ -1,13 +1,12 @@
-import { h } from 'preact';
-import { useCallback, useState } from 'preact/hooks';
+import { useCallback, useState } from 'react';
 
-import Overlay from '@/components/Overlay';
-import { useTheme } from '@/contexts/Theme';
-import RefreshIcon from '@/icons/RefreshIcon';
-import { sleep } from '@/sleep';
+import Overlay from '/components/Overlay';
+import { useTheme } from '/contexts/Theme';
+import RefreshIcon from '/icons/RefreshIcon';
+import { sleep } from '/sleep';
 
 export default function useSpinner(): [
-  h.JSX.Element | null,
+  React.ReactNode | null,
   typeof showSpinner
 ] {
   const [spinCount, setSpinCount] = useState(0);
@@ -28,7 +27,7 @@ export default function useSpinner(): [
   return [spinner, showSpinner];
 }
 
-export function Spinner(): h.JSX.Element {
+export function Spinner() {
   const { bg } = useTheme();
   return (
     <Overlay className="flex items-center bg-white bg-opacity-75">

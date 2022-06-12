@@ -1,6 +1,4 @@
-import { h, Fragment } from 'preact';
-
-import { Guest } from '@/api/vq';
+import { Guest } from '/api/vq';
 import FloatingButton from '../FloatingButton';
 import GuestList from '../GuestList';
 import LogoutButton from '../LogoutButton';
@@ -15,7 +13,7 @@ export default function ChooseParty({
   party: Set<Guest>;
   onToggle: (guest: Guest) => void;
   onConfirm: () => void;
-}): h.JSX.Element {
+}) {
   return (
     <>
       <div className="mt-5">

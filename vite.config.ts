@@ -11,7 +11,7 @@ const server = {
     cert: './tls/dev.cert',
     key: './tls/dev.key',
   },
-  hmr: hmr ? { host: process.env.HOST || 'localhost' } : false,
+  hmr: hmr && { host: process.env.HOST || 'localhost' },
 };
 
 export default {
@@ -19,7 +19,9 @@ export default {
   root: 'src',
   resolve: {
     alias: {
-      '@': path.join(__dirname, 'src'),
+      react: 'preact/compat',
+      'react-dom': 'preact/compat',
+      '/': path.join(__dirname, 'src') + '/',
     },
   },
   build: {
@@ -35,8 +37,8 @@ export default {
       },
     },
   },
-  esbuild: { jsxFactory: 'h', jsxFragment: 'Fragment' },
+  esbuild: { jsxInject: `import * as React from 'react'` },
   server,
   preview: server,
-  plugins: hmr ? [prefresh({})] : [],
+  plugins: [hmr && prefresh()],
 } as UserConfig;

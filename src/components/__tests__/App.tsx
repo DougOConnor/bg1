@@ -1,10 +1,8 @@
-import { h } from 'preact';
-
-import { click, render, screen } from '@/testing';
-import { AuthData } from '@/api/auth/client';
-import { ReauthNeeded } from '@/api/auth/store';
-import { ClientProvider } from '@/contexts/Client';
-import { DISCLAIMER_ACCEPTED_KEY } from '@/hooks/useDisclaimer';
+import { act, click, render, screen } from '/testing';
+import { AuthData } from '/api/auth/client';
+import { ReauthNeeded } from '/api/auth/store';
+import { ClientProvider } from '/contexts/Client';
+import { DISCLAIMER_ACCEPTED_KEY } from '/hooks/useDisclaimer';
 import App from '../App';
 
 jest.mock('../LoginForm', () => {
@@ -75,7 +73,9 @@ describe('App', () => {
   it('shows LoginForm if client.onAuthorized() called', async () => {
     renderComponent();
     screen.getByText('client loaded');
-    client.onUnauthorized();
+    act(() => {
+      client.onUnauthorized();
+    });
     await screen.findByText('Log In');
   });
 });

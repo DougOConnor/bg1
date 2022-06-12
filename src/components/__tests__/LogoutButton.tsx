@@ -1,7 +1,5 @@
-import { h } from 'preact';
-
-import { ClientProvider } from '@/contexts/Client';
-import { click, render } from '@/testing';
+import { ClientProvider } from '/contexts/Client';
+import { click, render } from '/testing';
 import LogoutButton from '../LogoutButton';
 
 describe('LogoutButton', () => {

@@ -1,19 +1,14 @@
-import { h, Fragment } from 'preact';
-import { useEffect, useState } from 'preact/hooks';
+import { useEffect, useState } from 'react';
 
-import { Booking, BookingGuest } from '@/api/genie';
-import { useGenieClient } from '@/contexts/GenieClient';
+import { Booking, BookingGuest } from '/api/genie';
+import { useGenieClient } from '/contexts/GenieClient';
 import Button from '../Button';
 import Overlay from '../Overlay';
 import Page from '../Page';
 import BookingDetails from './BookingDetails';
 import BookingListing from './BookingListing';
 
-export default function BookingPanel({
-  onClose,
-}: {
-  onClose: () => void;
-}): h.JSX.Element {
+export default function BookingPanel({ onClose }: { onClose: () => void }) {
   const client = useGenieClient();
   const [bookings, setBookings] = useState<Booking[]>();
   const [booking, setBooking] = useState<Booking>();

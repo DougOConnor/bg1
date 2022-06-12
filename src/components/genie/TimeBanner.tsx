@@ -1,7 +1,5 @@
-import { h } from 'preact';
-
-import { useTheme } from '@/contexts/Theme';
-import { displayTime } from '@/datetime';
+import { useTheme } from '/contexts/Theme';
+import { displayTime } from '/datetime';
 
 export default function TimeBanner({
   label,

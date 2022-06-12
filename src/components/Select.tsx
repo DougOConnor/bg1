@@ -1,10 +1,8 @@
-import { h } from 'preact';
+import { useTheme } from '/contexts/Theme';
 
-import { useTheme } from '@/contexts/Theme';
+type Props = React.HTMLProps<HTMLSelectElement>;
 
-type Props = h.JSX.HTMLAttributes<HTMLSelectElement>;
-
-export default function Select(props: Props): h.JSX.Element {
+export default function Select(props: Props) {
   const { className, ...attrs } = props;
   const { bg } = useTheme();
   return (

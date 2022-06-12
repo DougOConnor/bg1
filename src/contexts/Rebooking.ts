@@ -1,7 +1,6 @@
-import { createContext } from 'preact';
-import { useContext } from 'preact/hooks';
+import { createContext, useContext } from 'react';
 
-import { Booking } from '@/api/genie';
+import { Booking } from '/api/genie';
 
 export interface Rebooking {
   current: Booking | null;

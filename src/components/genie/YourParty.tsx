@@ -1,9 +1,8 @@
-import { h, Fragment, ComponentChildren } from 'preact';
-import { useState } from 'preact/hooks';
+import { useState } from 'react';
 
-import { useGenieClient } from '@/contexts/GenieClient';
-import { useParty } from '@/contexts/Party';
-import useFlash from '@/hooks/useFlash';
+import { useGenieClient } from '/contexts/GenieClient';
+import { useParty } from '/contexts/Party';
+import useFlash from '/hooks/useFlash';
 import Button from '../Button';
 import FloatingButton from '../FloatingButton';
 import GuestList, { Guest } from '../GuestList';
@@ -14,7 +13,7 @@ export default function YourParty({
   buttonText,
   onSubmit,
 }: {
-  buttonText: ComponentChildren;
+  buttonText: React.ReactNode;
   onSubmit: () => void;
 }) {
   const { eligible, ineligible, selected, setSelected } = useParty();
